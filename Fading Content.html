@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Fading Content</title>
+	<script type="text/javascript" src="jquery-3.6.0.min.js"></script>
+        
+        <style type="text/css">
+        
+            #hiddenText {
+                
+                display: none;
+                
+            }
+            
+        </style>
+</head>
+<body>
+		<p id="text">This is some text!</p>
+        <button id="toggle">Toggle Text</button>
+
+<script type="text/javascript">
+
+	// Two ways the result can be achieved
+
+	// First way
+
+	/*
+	$("#toggle").click(function(){
+		if ($("#text").css("display") == "none") {
+
+		$("#text").fadeIn();
+	} else {
+		$("#text").fadeOut();
+	}
+});
+
+*/
+
+// Second Way
+
+var textShowing = true;
+$("#toggle").click(function(){
+	if (textShowing){
+		$("#text").fadeOut(function(){
+			textShowing = false;
+		});
+	}else{
+		$("#text").fadeIn(function(){
+			textShowing = true;
+		});
+	}
+})
+
+
+</script>
+</body>
+</html>
